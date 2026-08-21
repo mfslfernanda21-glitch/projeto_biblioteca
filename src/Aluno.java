@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-public class Aluno extends Pessoa {
+public class Aluno extends Usuario {
     private String nome;
     private int cpf;
     private String email;
