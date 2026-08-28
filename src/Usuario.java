@@ -33,6 +33,6 @@ public abstract class Usuario {
         this.email = email;
     }
 
-    public abstract void exibirDados();
+    public abstract void listarInformacoes();
 }
 
