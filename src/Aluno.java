@@ -52,7 +52,7 @@ public class Aluno extends Usuario {
     }
 
     @Override
-    public void exibirDados(){
+    public void listarInformacoes(){
         System.out.println("Nome: " + getNome());
         System.out.println("Cpf: " + getCpf());
         System.out.println("Email: " + getEmail());
