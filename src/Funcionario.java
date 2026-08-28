@@ -1,7 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class Funcionario extends Usuario {
     private String cargo;
 
@@ -27,8 +23,4 @@ public class Funcionario extends Usuario {
         System.out.println("Cargo: " + cargo);
     }
 
-    @Override
-    public void exibirDados() {
-
-    }
 }
