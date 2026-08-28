@@ -2,41 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Funcionario {
-    private String nome;
-    private int cpf;
-    private String email;
+public class Funcionario extends Usuario {
     private String cargo;
 
-    public Funcionario(String nome, int cpf, String email, String cargo) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
+    public Funcionario(String nome, String cpf, String email, String cargo) {
+        super(nome, cpf, email);
         this.cargo = cargo;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getCargo() {
@@ -45,5 +16,19 @@ public class Funcionario {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    @Override
+    public void listarInformacoes() {
+        System.out.println("Tipo: Funcionário");
+        System.out.println("Nome: " + getNome());
+        System.out.println("CPF: " + getCpf());
+        System.out.println("E-mail: " + getEmail());
+        System.out.println("Cargo: " + cargo);
+    }
+
+    @Override
+    public void exibirDados() {
+
     }
 }

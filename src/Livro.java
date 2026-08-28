@@ -1,19 +1,16 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-public class Livro {
+public class Livro implements Disponibilidade {
     private String titulo;
     private String autor;
-    private int anodepublicacao;
-    private int disponibiliodade;
+    private int anoPublicacao;
+    private boolean disponivel;
 
-    public Livro(String autor, String titulo, int anodepublicacao, int disponibiliodade) {
-        this.autor = autor;
+    public Livro(String titulo, String autor, int anoPublicacao) {
         this.titulo = titulo;
-        this.anodepublicacao = anodepublicacao;
-        this.disponibiliodade = disponibiliodade;
+        this.autor = autor;
+        this.anoPublicacao = anoPublicacao;
+        this.disponivel = true; // Livro começa disponível por padrão
     }
+
 
     public String getTitulo() {
         return titulo;
@@ -31,19 +28,35 @@ public class Livro {
         this.autor = autor;
     }
 
-    public int getAnodepublicacao() {
-        return anodepublicacao;
+    public int getAnoPublicacao() {
+        return anoPublicacao;
     }
 
-    public void setAnodepublicacao(int anodepublicacao) {
-        this.anodepublicacao = anodepublicacao;
+    public void setAnoPublicacao(int anoPublicacao) {
+        this.anoPublicacao = anoPublicacao;
     }
 
-    public int getDisponibiliodade() {
-        return disponibiliodade;
+    public boolean isDisponivel() {
+        return disponivel;
     }
 
-    public void setDisponibiliodade(int disponibiliodade) {
-        this.disponibiliodade = disponibiliodade;
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    @Override
+    public void emprestar() {
+        this.disponivel = false;
+    }
+
+    @Override
+    public void devolver() {
+        this.disponivel = true;
+    }
+
+    @Override
+    public String toString() {
+        return "Título: " + titulo + " | Autor: " + autor + " | Ano: " + anoPublicacao +
+                " | Disponível: " + (disponivel ? "Sim" : "Não");
     }
 }

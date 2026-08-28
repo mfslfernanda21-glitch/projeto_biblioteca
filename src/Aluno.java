@@ -1,11 +1,11 @@
 public class Aluno extends Usuario {
     private String nome;
-    private int cpf;
+    private String cpf;
     private String email;
     private String curso;
     private int turma;
 
-    public Aluno(String nome, int cpf, String email, String curso, int turma) {
+    public Aluno(String nome, String cpf, String email, String curso, int turma) {
         super(nome,cpf,email);
         this.curso = curso;
         this.turma = turma;
@@ -19,11 +19,11 @@ public class Aluno extends Usuario {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -51,6 +51,7 @@ public class Aluno extends Usuario {
         this.turma = turma;
     }
 
+    @Override
     public void exibirDados(){
         System.out.println("Nome: " + getNome());
         System.out.println("Cpf: " + getCpf());
