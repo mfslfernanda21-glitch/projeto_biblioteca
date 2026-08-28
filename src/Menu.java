@@ -9,6 +9,7 @@ public class Menu {
         int opcao;
 
         do {
+
             System.out.println("\n==== MENU ====");
             System.out.println("1 - Cadastrar livro");
             System.out.println("2 - Listar livros");
@@ -21,6 +22,7 @@ public class Menu {
             System.out.print("Digite uma opção: ");
 
             try {
+
                 opcao = scanner.nextInt();
                 scanner.nextLine();
 
@@ -51,10 +53,12 @@ public class Menu {
 
                     case 2:
 
-                        System.out.println("\n==== LIVROS ====");
+                        System.out.println("\n==== LIVROS CADASTRADOS ====");
 
                         for (Livro livro1 : BaseDados.getLivros()) {
-                            livro1.listarInformacoes();
+
+                            System.out.println(livro1);
+
                             System.out.println("----------------------");
                         }
 
@@ -63,7 +67,9 @@ public class Menu {
 
                     case 3:
 
-                        System.out.println("\nDeseja adicionar Funcionário ou Aluno?");
+                        System.out.println("\n==== CADASTRAR USUÁRIO ====");
+
+                        System.out.println("Deseja adicionar Funcionário ou Aluno?");
                         String tipo = scanner.nextLine();
 
                         System.out.print("Nome: ");
@@ -82,12 +88,17 @@ public class Menu {
                             String cargo = scanner.nextLine();
 
                             Usuario usuario = new Funcionario(
-                                    nome, cpf, email, cargo
+                                    nome,
+                                    cpf,
+                                    email,
+                                    cargo
                             );
 
                             BaseDados.addUser(usuario);
 
-                            System.out.println("Funcionário cadastrado!");
+                            System.out.println(
+                                    "Funcionário cadastrado com sucesso!"
+                            );
 
                         } else if (tipo.equalsIgnoreCase("aluno")) {
 
@@ -98,16 +109,24 @@ public class Menu {
                             String turma = scanner.nextLine();
 
                             Usuario usuario = new Aluno(
-                                    nome, cpf, email, curso, turma
+                                    nome,
+                                    cpf,
+                                    email,
+                                    curso,
+                                    turma
                             );
 
                             BaseDados.addUser(usuario);
 
-                            System.out.println("Aluno cadastrado!");
+                            System.out.println(
+                                    "Aluno cadastrado com sucesso!"
+                            );
 
                         } else {
 
-                            System.out.println("Tipo de usuário inválido!");
+                            System.out.println(
+                                    "Tipo de usuário inválido!"
+                            );
                         }
 
                         break;
@@ -115,10 +134,12 @@ public class Menu {
 
                     case 4:
 
-                        System.out.println("\n==== USUÁRIOS ====");
+                        System.out.println("\n==== USUÁRIOS CADASTRADOS ====");
 
                         for (Usuario usuario : BaseDados.getUsuarios()) {
+
                             usuario.listarInformacoes();
+
                             System.out.println("----------------------");
                         }
 
@@ -129,9 +150,12 @@ public class Menu {
 
                         System.out.println("\n==== REALIZAR EMPRÉSTIMO ====");
 
-                        for (int i = 0; i < BaseDados.getLivros().size(); i++) {
+                        for (int i = 0;
+                             i < BaseDados.getLivros().size();
+                             i++) {
 
-                            Livro livroEmprestimo = BaseDados.getLivros().get(i);
+                            Livro livroEmprestimo =
+                                    BaseDados.getLivros().get(i);
 
                             System.out.println(
                                     (i + 1) + " - " +
@@ -143,7 +167,10 @@ public class Menu {
                             );
                         }
 
-                        System.out.print("Digite o número do livro: ");
+                        System.out.print(
+                                "Digite o número do livro: "
+                        );
+
                         int numeroLivro = scanner.nextInt();
                         scanner.nextLine();
 
@@ -155,7 +182,8 @@ public class Menu {
                         } else {
 
                             Livro livroEmprestimo =
-                                    BaseDados.getLivros().get(numeroLivro - 1);
+                                    BaseDados.getLivros()
+                                            .get(numeroLivro - 1);
 
                             if (livroEmprestimo.isDisponivel()) {
 
@@ -180,9 +208,12 @@ public class Menu {
 
                         System.out.println("\n==== DEVOLVER LIVRO ====");
 
-                        for (int i = 0; i < BaseDados.getLivros().size(); i++) {
+                        for (int i = 0;
+                             i < BaseDados.getLivros().size();
+                             i++) {
 
-                            Livro livroDevolver = BaseDados.getLivros().get(i);
+                            Livro livroDevolver =
+                                    BaseDados.getLivros().get(i);
 
                             System.out.println(
                                     (i + 1) + " - " +
@@ -194,19 +225,24 @@ public class Menu {
                             );
                         }
 
-                        System.out.print("Digite o número do livro: ");
+                        System.out.print(
+                                "Digite o número do livro: "
+                        );
+
                         int numeroDevolver = scanner.nextInt();
                         scanner.nextLine();
 
                         if (numeroDevolver < 1 ||
-                                numeroDevolver > BaseDados.getLivros().size()) {
+                                numeroDevolver >
+                                        BaseDados.getLivros().size()) {
 
                             System.out.println("Livro inválido!");
 
                         } else {
 
                             Livro livroDevolver =
-                                    BaseDados.getLivros().get(numeroDevolver - 1);
+                                    BaseDados.getLivros()
+                                            .get(numeroDevolver - 1);
 
                             if (!livroDevolver.isDisponivel()) {
 
@@ -229,19 +265,25 @@ public class Menu {
 
                     case 7:
 
-                        System.out.println("Saindo do sistema...");
+                        System.out.println(
+                                "Saindo do sistema..."
+                        );
 
                         break;
 
 
                     default:
 
-                        System.out.println("Digite um número de 1 a 7!");
+                        System.out.println(
+                                "Digite um número de 1 a 7!"
+                        );
                 }
 
             } catch (Exception e) {
 
-                System.out.println("Digite apenas números!");
+                System.out.println(
+                        "Erro! Digite apenas números."
+                );
 
                 scanner.nextLine();
 
