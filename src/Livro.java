@@ -56,7 +56,7 @@ public class Livro implements Disponibilidade {
 
     @Override
     public String toString() {
-        return "Título: " + titulo + " | Autor: " + autor + " | Ano: " + anoPublicacao +
+        return "Título: " + getTitulo + " | Autor: " + getAutor + " | Ano: " + getAnoPublicacao +
                 " | Disponível: " + (disponivel ? "Sim" : "Não");
     }
 }
